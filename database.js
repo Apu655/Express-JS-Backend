@@ -19,11 +19,11 @@ const pool = createPool({
 })
 
 
-pool.query(`select * from users`,(err,result,fields)=>{
-    if(err){
-        return console.log(err)
-    }
-    return console.log(result)
-})
+// pool.query(`select * from comments_table`,(err,result,fields)=>{
+//     if(err){
+//         return console.log(err)
+//     }
+//     return console.log(result)
+// })
 
 module.exports = pool;

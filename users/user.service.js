@@ -3,6 +3,15 @@ require("dotenv").config()
 
 module.exports = {
     create: (data,callback)=>{
+        // pool.query(`SELECT * FROM users WHERE email = ?`,[data.email],
+        // (error,results,fields)=>{
+        //     console.log(results)
+        //     if (results){
+        //         console.log("Backend theke bolchi",results[0])
+        //         console.log("Backend theke bolchi")
+        //         // return callback(true)
+        //     }
+        // })
         pool.query(
             `insert into users(name,email,password,isVerified) values(?,?,?,?)`,
             [data.name,data.email,data.password,data.isVerified],
