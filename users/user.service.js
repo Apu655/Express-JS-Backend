@@ -6,17 +6,17 @@ module.exports = {
         // pool.query(`SELECT * FROM users WHERE email = ?`,[data.email],
         // (error,results,fields)=>{
         //     console.log(results)
-        //     if (results){
-        //         console.log("Backend theke bolchi",results[0])
-        //         console.log("Backend theke bolchi")
-        //         // return callback(true)
+        //     if (error){
+        //         return callback(error)
         //     }
+        //     return callback(null,results)
         // })
         pool.query(
-            `insert into users(name,email,password,isVerified) values(?,?,?,?)`,
-            [data.name,data.email,data.password,data.isVerified],
+            `insert into users(name,email,password) values(?,?,?)`,
+            [data.name,data.email,data.password],
             (error,results,fields)=>{
                 if (error){
+                    console.log("The Error is",error)
                     return callback(error)
                 }
                 return callback(null,results)
@@ -35,6 +35,7 @@ module.exports = {
         pool.query(`SELECT * FROM users WHERE email = ?`,
         [email],
         (error,results,fields)=>{
+            console.log("Results : ",results)
             if(error){
                 callBack(error);
             }

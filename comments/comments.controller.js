@@ -1,4 +1,4 @@
-const {create,getComments} = require("./comments.service")
+const {create,getComments, deleteCommentById} = require("./comments.service")
 module.exports={
     createComments:(req,res)=>{
         const body = req.body
@@ -32,5 +32,21 @@ module.exports={
                 data:results
             })
         })
+    },
+    deleteCommentById:(req,res)=>{
+        const {id} = req.params
+        deleteCommentById(id,(err,results)=>{
+            if (err){
+                return res.json({
+                    success:0,
+                    message:"An error occured!"
+                })
+            }
+            return res.status(200).json({
+                success:1,
+                message:"The comment has been deleted."
+            })
+        })
+        
     }
 }

@@ -19,7 +19,7 @@ const pool = createPool({
 })
 
 
-// pool.query(`select * from comments_table`,(err,result,fields)=>{
+// pool.query(`select * from users where`,(err,result,fields)=>{
 //     if(err){
 //         return console.log(err)
 //     }
